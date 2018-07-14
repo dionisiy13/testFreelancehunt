@@ -2,13 +2,15 @@
 
 1. git clone `https://github.com/dionisiy13/testFreelancehunt.git {folder}`
 
-2. импорт файла /db.sql в бд
+2. выполнить `composer update`
 
-3. настроить `/config/local.config.php`
+3. импорт файла /db.sql в бд
 
-4. импортировать данные с файла в дб в консоли `php index.php sync`
+4. настроить `/config/local.config.php`
 
-5. наверное тесты запустить
+5. импортировать данные с файла в дб в консоли `php index.php sync`
+
+6. наверное тесты запустить
 
 Настроить юрл проекта в файлах ` /tests/*.yml`
     
