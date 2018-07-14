@@ -1,0 +1,19 @@
+{
+    "name": "test/test",
+    "description": "Test task",
+    "authors": [
+        {
+            "name": "Dan Kurasov",
+            "email": "dionisiy13@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/"
+        }
+    },
+    "require": {
+        "codeception/codeception": "^2.4",
+        "pecee/simple-router": "4.2.0.3"
+    }
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <title>Hello, freelancehunt!</title>
+</head>
+<body>
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+    <div class="col-12 col-lg-12">
+        <script type="text/x-template" id="grid-template">
+            <table  class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th v-for="key in columns"
+                        :class="{ active: sortKey == key }">
+                        {{ key | capitalize }}
+                        <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="entry in filteredData" :class="entry.max ? 'max' : '' " :data-name="entry.name">
+                    <td v-for="key in columns">
+                        {{entry[key]}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </script>
+
+        <!-- demo root element -->
+        <div class="row justify-content-center" style="margin: 20px 0 20px 0 " id="example-1">
+            <div class="col-6 col-lg-6">
+                <select name="country" v-on:change="update" class="form-control">
+                    <option value="0">- Страна -</option>
+                    <option v-for="item in items" :value="item.id">
+                        {{ item.name }}
+                    </option>
+                </select>
+
+            </div>
+
+            <div class="col-6 col-lg-6">
+                <select name="is_active" v-on:change="update" class="form-control">
+                    <option value="0">- Активность -</option>
+                    <option value="2">Да</option>
+                    <option value="1">Нет</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div id="demo">
+            <p>Средний рейтинг - {{ avg_rating }}</p>
+            <p>Максимальный рейтинг - {{ max_rating }} {{ max_rating_user_name }}</p>
+
+            <table-grid
+                    :data="gridData"
+                    :columns="gridColumns">
+            </table-grid>
+            <p>{{ result }}</p>
+        </div>
+
+
+    </div>
+
+
+</div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="/assets/js/main.js"></script>
+<style>
+    .max {background-color: #69af79;}
+</style>
+</body>
+</html>
