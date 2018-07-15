@@ -43,11 +43,10 @@ class ImportCSV
         $checkInRepository = new UsersCheckIn();
         $array = array_slice($this->resultArray, 1);
 
-        echo "Total amount for importing - ". sizeof($array)."\n";
+        echo 'Total amount for importing - '.sizeof($array)."\n";
         echo "Loading...\n";
         foreach ($array as $item) {
             try {
-
                 [$name, $date, $ip, $rating, $country, $isActive] = $item;
 
                 if (!($userId = $userRepository->findUserByName($name))) {
@@ -55,7 +54,7 @@ class ImportCSV
                         $name,
                         (new Countries())->getCountryIdByName($country),
                         $rating,
-                        $isActive == "Да" ? 1 : 0
+                        'Да' == $isActive ? 1 : 0
                     );
                 }
 
@@ -66,12 +65,11 @@ class ImportCSV
                     $date
                 );
 
-                echo ".";
-
+                echo '.';
             } catch (\Throwable $t) {
                 continue;
             }
         }
-        echo "Done!";
+        echo 'Done!';
     }
 }

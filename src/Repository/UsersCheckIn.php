@@ -4,9 +4,9 @@ namespace Core\Repository;
 
 use Core\Service\Database;
 
-class UsersCheckIn {
-
-    /** @var  \PDO */
+class UsersCheckIn
+{
+    /** @var \PDO */
     private $db;
 
     public function __construct()
@@ -20,7 +20,7 @@ class UsersCheckIn {
 
         $query = $this->db->prepare($usersCheckInSQL);
         $query->execute([
-            ':user' =>$userId,
+            ':user' => $userId,
             ':ip' => $ip,
             ':country' => $country,
             ':date' => $date,
@@ -28,6 +28,4 @@ class UsersCheckIn {
 
         return $this->db->lastInsertId();
     }
-
-
 }

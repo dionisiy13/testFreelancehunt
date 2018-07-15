@@ -8,16 +8,15 @@ use Core\Service\Database;
 use Pecee\Http\Request;
 use Pecee\Http\Response;
 
-class RestController  {
-
-    /** @var  \PDO */
+class RestController
+{
+    /** @var \PDO */
     private $db;
 
     public function __construct()
     {
         $this->db = Database::getDB();
     }
-
 
     public function getAllAction()
     {
@@ -29,7 +28,7 @@ class RestController  {
                 'name' => $user['name'],
                 'country' => $user['country'],
                 'rating' => $user['rating'],
-                'is_active' => $user['is_active'] ? "Да" : "Нет"
+                'is_active' => $user['is_active'] ? 'Да' : 'Нет',
             ];
         }
 
@@ -63,7 +62,7 @@ class RestController  {
                 'name' => $user['name'],
                 'country' => $user['country'],
                 'rating' => $user['rating'],
-                'is_active' => $user['is_active'] ? "Да" : "Нет"
+                'is_active' => $user['is_active'] ? 'Да' : 'Нет',
             ];
         }
 
@@ -71,10 +70,5 @@ class RestController  {
             ->json(
                 $result ?? []
             );
-
     }
-
-
-
-
 }

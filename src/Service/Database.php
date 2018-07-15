@@ -7,7 +7,8 @@ class Database
     private static $connection = null;
 
     private function __construct()
-    {}
+    {
+    }
 
     public static function getDB(): \PDO
     {
@@ -23,6 +24,7 @@ class Database
                 self::$connection = new \PDO($dsn, $config['username'], $config['password']);
             } catch (PDOException $e) {
                 echo __LINE__.$e->getMessage();
+
                 return false;
             }
         }
